@@ -46,7 +46,7 @@
 
     
     <section class="container mt-3">
-      <h3 class="text-center">Featured YTubers</h3>
+      <h3 class="text-center">Featured Creators</h3>
       <p class="pt-2 pb-3 text-center">YTubers that did extra ordinary last month</p>
       <div class="team slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}' style = "display:flex;">
 
@@ -54,7 +54,9 @@
         {% for fy in featured_youtubers %}
         <div class="card border-0 text-center ml-3 mr-3">
           <div class="feature-text">
+            <a href="{% url 'youtubers_detail' fy.id %}"> 
             <img src="{{ fy.photo.url }}" class="card-img-top" alt="team-member">
+            </a>
             <span class="text-left bg-accent font-weight-bold">
               Featured
             </span>
@@ -95,16 +97,17 @@
 
 
     <section class="container mt-5 mb-5">
-      <h3 class="text-center">Latest On Board YTubers</h3>
-      <p class="pt-2 pb-3 text-center">YTubers who recently got onboard with us</p>
+      <h3 class="text-center">Latest On Board Creators</h3>
+      <p class="pt-2 pb-3 text-center">Creators who recently got onboard with us</p>
 
       <div class="tubers grid">
         <!-- person 1 -->
         {% for at in all_tubers %}
         <div class="card border-0 text-center">
           <div>
+            <a href="{% url 'youtubers_detail' at.id %}">
             <img src="{{at.photo.url}}" class="card-img-top" alt="team-member">
-
+            </a>
           </div>
           <div class="card-body">
             <h5 class="card-title">{{at.name}}</h5>

@@ -6,7 +6,7 @@
     <div class="banner">
       <img src="{% static './assets/images/bg-banner.png' %}" alt="" class="img-fluid w-100">
       <h1 class="text-center">
-        Tubers
+        Influencers
       </h1>
     </div>
     {% include 'messages.html' %}
@@ -26,9 +26,9 @@
                   <a href="{% url 'youtubers_detail' tuber.id %}">
                     <img src="{{ tuber.photo.url }}" class="card-img-top" alt="team-member">
                     </a>
-                <span class="text-left bg-accent font-weight-bold">
+                <!-- <span class="text-left bg-accent font-weight-bold">
                   Featured
-                </span>
+                </span> -->
               </div>
               <div class="card-body">
                 <h5 class="card-title">{{tuber.name}}</h5>
@@ -77,26 +77,43 @@
               <p class="text-left font-weight-bolder text-black-50">
                 Search Tubers
               </p>
-              <form>
+              
+              <form method="GET" action="{% url 'search' %}">
                 <div class="form-group">
-                  <select id="inputState" class="form-control">
+                  <select name="city" id="inputState" class="form-control">
                     <option selected disabled hidden>City</option>
-                    <option>...</option>
+                    
+                    <option value="{{city}}">Mumbai</option>
+                    <option value="{{city}}">Delhi</option>
+                    <option value="{{city}}">Gurgaun</option>
+                    <option value="{{city}}">Ujjain</option>
+                    <option value="{{city}}">Pune</option>
+                    
                   </select>
                 </div>
+
                 <div class="form-group">
-                  <select id="inputState" class="form-control">
+                  <select name="camera_type" id="inputState" class="form-control">
                     <option selected disabled hidden>Camera Type</option>
-                    <option>Value 1</option>
-                    <option>Value 2</option>
-                    <option>Value 3</option>
-                    <option>Value 4</option>
+                    <option value="{{camera}}">Canon</option>
+                    <option value="{{camera}}">Nicon</option>
+                    <option value="{{camera}}">Sony</option>
+                    <option value="{{camera}}">Fuji</option>
+                    <option value="{{camera}}">Red</option>
+                    <option value="{{camera}}">Panasonic</option>
+                    
                   </select>
                 </div>
+
                 <div class="form-group">
-                  <select class="form-control">
+                  <select name="category" class="form-control">
                     <option selected disabled hidden>Category</option>
-                    <option>...</option>
+                    <option value="{{category}}">Code</option>
+                    <option value="{{category}}">Vlogs</option>
+                    <option value="{{category}}">Mobile Review</option>
+                    <option value="{{category}}">Comedy</option>
+                    <option value="{{category}}">Film Making</option>
+                    <option value="{{category}}">Cooking</option>
                   </select>
                 </div>
 
